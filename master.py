@@ -23,10 +23,10 @@ rows = sheet.max_row
 # Mengisi formulir menggunakan data dari Excel
 for r in range(2, rows+1):
     # Membaca data dari kolom pertama (misalnya, kolom 'A')
-    nrp = data_to_submit[r - 2][0]
+    nrp = sheet.cell(row=r, column=1).value
 
     # Identifikasi elemen input dan mengisi dengan data
-    driver.find_element(By.CLASS_NAME, "uArJ5e UQuaGc YhQJj zo8FOc ctEux").send_keys(nrp)
-    driver.find_element(By.CLASS_NAME, "uArJ5e UQuaGc YhQJj zo8FOc ctEux").click()
+    driver.find_element(By.CLASS_NAME, "whsOnd.zHQkBf").send_keys(nrp)
+    driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div').click()
 
 driver.quit()
