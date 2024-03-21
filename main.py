@@ -11,7 +11,7 @@ print("Memulai Program")
 driver = webdriver.Chrome()
 driver.get("https://forms.gle/ueXgvWTQRxAb56St7")
 
-wait = WebDriverWait(driver, 2)
+wait = WebDriverWait(driver, 10)
 wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'whsOnd.zHQkBf')))
 
 def fill_form(email, nrp, nama, jenis_kelamin, usia, alamat, golongan, posisi, department, divisi, site, pilihan):
@@ -30,6 +30,7 @@ def fill_form(email, nrp, nama, jenis_kelamin, usia, alamat, golongan, posisi, d
 
     wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'whsOnd.zHQkBf')))
     wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'KHxj8b.tL9Q4c')))
+    wait.until(EC.visibility_of_element_located((By.XPATH, '//div[@class="lRwqcd"]//span[text()="Berikutnya"]')))
 
     inputs = driver.find_elements(By.CLASS_NAME, 'whsOnd.zHQkBf')
     radiobuttons = driver.find_elements(By.CLASS_NAME, 'Od2TWd.hYsg7c')
@@ -53,12 +54,13 @@ def fill_form(email, nrp, nama, jenis_kelamin, usia, alamat, golongan, posisi, d
     bt_next.click()
 
     wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'whsOnd.zHQkBf')))
+    wait.until(EC.visibility_of_element_located((By.XPATH, '//div[@class="lRwqcd"]//span[text()="Berikutnya"]')))
 
     inputs = driver.find_elements(By.CLASS_NAME, 'whsOnd.zHQkBf')
     radiobuttons = driver.find_elements(By.CLASS_NAME, 'Od2TWd.hYsg7c')
     time.sleep(1)  # Tunggu sebentar
 
-    inputs_array = [golongan, posisi, department, divisi, site]
+    inputs_array = [golongan, department, divisi, site]
 
     for i in range(len(inputs)):
         inputs[i].clear()
@@ -72,6 +74,7 @@ def fill_form(email, nrp, nama, jenis_kelamin, usia, alamat, golongan, posisi, d
     bt_next.click()
 
     wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'Od2TWd.hYsg7c')))
+    wait.until(EC.visibility_of_element_located((By.XPATH, '//div[@class="lRwqcd"]//span[text()="Kirim"]')))
 
     radiobuttons = driver.find_elements(By.CLASS_NAME, 'Od2TWd.hYsg7c')
     time.sleep(1)
