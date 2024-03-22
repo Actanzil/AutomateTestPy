@@ -58,7 +58,7 @@ def fill_form(email, nrp, nama, jenis_kelamin, usia, alamat, golongan, posisi, d
 
     inputs = driver.find_elements(By.CLASS_NAME, 'whsOnd.zHQkBf')
     radiobuttons = driver.find_elements(By.CLASS_NAME, 'Od2TWd.hYsg7c')
-    time.sleep(1)  # Tunggu sebentar
+    time.sleep(1)
 
     inputs_array = [golongan, department, divisi, site]
 
